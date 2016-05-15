@@ -1,23 +1,13 @@
-import { create as createHelloAction } from './actions/hello';
-import { create as createDecrementAction } from './actions/decrement';
-import { create as createIncrementAction } from './actions/increment';
+import { createElement } from 'react';
+import { render } from 'react-dom';
 import { createStore } from './store';
+import { Root } from './components/root';
 
 const main = (): void => {
-  const store = createStore();
-
-  // subscribe (dummy)
-  store.subscribe(() => console.log(store.getState()));
-
-  // dispatch (dummy)
-  store.dispatch(createIncrementAction());
-  store.dispatch(createIncrementAction());
-  store.dispatch(createDecrementAction());
-  store.dispatch(createIncrementAction());
-  store.dispatch(createHelloAction('World!'));
-  store.dispatch(createHelloAction('bouzuya'));
-
-  console.log('OK');
+  const initialState = (<any> window).__INITIAL_STATE;
+  const store = createStore(initialState);
+  const element = createElement(Root, { store });
+  render(element, document.querySelector('.app'));
 };
 
 main();

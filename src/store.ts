@@ -5,12 +5,10 @@ import { reducer } from './reducers/';
 import { saga } from './sagas/';
 import { State } from './types/';
 
-const createStore = (): Store<State> => {
+const createStore = (initialState?: State): Store<State> => {
   const sagaMiddleware = createSagaMiddleware();
-  const store = create<State>(
-    reducer,
-    applyMiddleware(sagaMiddleware)
-  );
+  const enhancer = applyMiddleware(sagaMiddleware);
+  const store = create<State>(reducer, initialState, enhancer);
   sagaMiddleware.run(saga);
   return store;
 };
