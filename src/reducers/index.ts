@@ -1,12 +1,11 @@
-import { Action } from 'redux';
-import { is as isDecrementAction } from '../actions/decrement';
-import { is as isIncrementAction } from '../actions/increment';
+import { Action, Reducer, combineReducers } from 'redux';
+import { reducer as count } from '../reducers/count';
+import { reducer as w } from '../reducers/w';
 import { State } from '../types/';
 
-const reducer = (state: State = { count: 0 }, action: Action): State => {
-  if (isIncrementAction(action)) return { count: state.count + 1 };
-  if (isDecrementAction(action)) return { count: state.count - 1 };
-  return state;
-};
+const reducer = combineReducers<State>({
+  count,
+  w
+});
 
 export { reducer };

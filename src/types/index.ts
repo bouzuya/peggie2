@@ -1,5 +1,9 @@
+import { Count } from '../types/count';
+import { W } from '../models/w';
+
 type State = {
-  count: number;
+  count: Count;
+  w: W;
 };
 
 export { State };

@@ -1,7 +1,14 @@
 import test from 'ava';
 
-import { p, h, toString } from '../src/models/w';
-import { add, remove, replay } from '../src/models/a';
+import { Action } from 'redux';
+import { W, p, h, toString } from '../../src/models/w';
+import { create as add } from '../../src/actions/add';
+import { create as remove } from '../../src/actions/remove';
+import { reducer } from '../../src/reducers/w';
+
+const replay = (actions: Action[]): W => {
+  return actions.reduce(reducer, undefined);
+};
 
 // test data
 const p1 = p('2016-05-13', 2000);

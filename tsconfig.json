@@ -17,7 +17,7 @@
     "./src/components/app.tsx",
     "./src/components/root.tsx",
     "./src/server.ts",
-    "./test/peg.ts",
+    "./test/reducers/w.ts",
     "./typings/main.d.ts"
   ]
 }
