@@ -15,6 +15,7 @@
   "files": [
     "./src/client.ts",
     "./src/components/app.tsx",
+    "./src/components/count.tsx",
     "./src/components/root.tsx",
     "./src/server.ts",
     "./test/reducers/w.ts",
