@@ -11,8 +11,6 @@ fs.readdirSync('node_modules')
     nodeModules[mod] = 'commonjs ' + mod;
   });
 
-var port = 3001;
-
 module.exports = {
   name: 'server',
   target: 'node',
